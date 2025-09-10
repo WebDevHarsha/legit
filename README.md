@@ -1,51 +1,118 @@
-# legit README
+# LeGit - AI-Powered Git Commit Message Generator
 
-This is the README for your extension "legit". After writing up a brief description, we recommend including the following sections.
+LeGit is a VS Code extension that uses Google's Gemini AI to automatically generate meaningful and descriptive git commit messages based on your staged changes.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- 🤖 **AI-Generated Commit Messages**: Uses Google Gemini to analyze your code changes and generate contextual commit messages
+- 📝 **Multiple Commit Styles**: Choose between Conventional Commits, descriptive, or brief message styles
+- 🎯 **Smart Staging**: Automatically offers to stage all changes if no changes are staged
+- ✏️ **Editable Messages**: Review and edit generated messages before committing
+- 📋 **Clipboard Integration**: Copy generated messages to clipboard for use in other git tools
+- 🔄 **Source Control Integration**: Seamlessly integrates with VS Code's built-in Source Control panel
 
-For example if there is an image subfolder under your extension project workspace:
+## Prerequisites
 
-\!\[feature X\]\(images/feature-x.png\)
+- VS Code version 1.103.0 or higher
+- Git installed and configured
+- Google Gemini API key (free from [Google AI Studio](https://aistudio.google.com/app/apikey))
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Installation
 
-## Requirements
+1. Install the extension from the VS Code Marketplace
+2. Get your free API key from [Google AI Studio](https://aistudio.google.com/app/apikey)
+3. Open VS Code settings and search for "LeGit"
+4. Paste your API key in the "LeGit: Api Key" setting
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Usage
 
-## Extension Settings
+### Commands
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+1. **Generate Commit Message** (`Ctrl+Shift+P` → "LeGit: Generate Commit Message")
+   - Generates a commit message and copies it to your clipboard
+   - Opens Source Control panel for you to paste and commit manually
 
-For example:
+2. **Generate & Commit** (`Ctrl+Shift+P` → "LeGit: Generate & Commit")
+   - Generates a commit message and commits immediately after your review
 
-This extension contributes the following settings:
+### From Source Control Panel
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+- Look for the LeGit button in your Source Control panel title bar
+- Click it to generate a commit message for your staged changes
 
-## Known Issues
+## Configuration
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Configure LeGit through VS Code settings:
+
+- **API Key**: Your Google Gemini API key
+- **Commit Message Style**: 
+  - `conventional`: Uses Conventional Commits format (e.g., `feat: add new feature`)
+  - `descriptive`: Detailed explanatory messages
+  - `brief`: Short, concise messages
+- **Max Diff Lines**: Maximum number of diff lines to analyze (default: 500)
+
+## Examples
+
+### Conventional Style
+```
+feat: add user authentication system
+fix: resolve memory leak in data processing
+docs: update API documentation
+```
+
+### Descriptive Style
+```
+Add comprehensive user authentication with JWT tokens
+Fix memory leak that occurred during large data processing operations
+Update API documentation to include new endpoints and examples
+```
+
+### Brief Style
+```
+Add user auth
+Fix memory leak
+Update docs
+```
+
+## Troubleshooting
+
+### "No staged changes found"
+- Make sure you have changes staged (`git add .` or stage files in Source Control panel)
+- The extension will offer to stage all changes automatically
+
+### "API key not set"
+- Go to VS Code Settings → Extensions → LeGit
+- Add your Google Gemini API key
+- Get a free key from [Google AI Studio](https://aistudio.google.com/app/apikey)
+
+### "Not in a git repository"
+- Make sure your workspace folder is a git repository
+- Initialize git with `git init` if needed
+
+## Privacy & Security
+
+- Your code diffs are sent to Google's Gemini API for analysis
+- API keys are stored locally in VS Code settings
+- No data is stored or logged by the extension itself
+- Consider your organization's policies regarding AI code analysis tools
+
+## Contributing
+
+Found a bug or have a feature request? Please open an issue on [GitHub](https://github.com/WebDevHarsha/legit/issues).
+
+## License
+
+MIT License - see LICENSE file for details.
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
+### 0.0.1
 
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
+Initial release of LeGit with:
+- AI-powered commit message generation using Google Gemini
+- Multiple commit message styles (Conventional, Descriptive, Brief)
+- Source Control panel integration
+- Clipboard support for generated messages
 
 ---
 

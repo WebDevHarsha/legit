@@ -7,17 +7,95 @@
     "vscode": "^1.103.0"
   },
   "categories": [
+    "SCM Providers",
+    "Machine Learning",
     "Other"
   ],
-  "activationEvents": [],
+  "keywords": [
+    "git",
+    "commit",
+    "ai",
+    "gemini",
+    "automation",
+    "productivity"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WebDevHarsha/legit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/WebDevHarsha/legit/issues"
+  },
+  "homepage": "https://github.com/WebDevHarsha/legit#readme",
+  "author": {
+    "name": "WebDevHarsha"
+  },
+  "license": "MIT",
+  "activationEvents": [
+    "*"
+  ],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "LeGit",
+      "properties": {
+        "legit.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Google Gemini API key for generating commit messages",
+          "markdownDescription": "Get your API key from [Google AI Studio](https://aistudio.google.com/app/apikey)"
+        },
+        "legit.maxDiffLines": {
+          "type": "number",
+          "default": 500,
+          "description": "Maximum number of diff lines to analyze (to avoid API limits)"
+        },
+        "legit.commitMessageStyle": {
+          "type": "string",
+          "enum": [
+            "conventional",
+            "descriptive",
+            "brief"
+          ],
+          "default": "conventional",
+          "description": "Style of commit message to generate",
+          "enumDescriptions": [
+            "Conventional Commits format (e.g., feat: add new feature)",
+            "Descriptive messages explaining what was changed",
+            "Brief, concise messages"
+          ]
+        }
+      }
+    },
     "commands": [
       {
-        "command": "legit.helloWorld",
-        "title": "Hello World"
+        "command": "legit.generateCommitMessage",
+        "title": "Generate Commit Message"
+      },
+      {
+        "command": "legit.generateAndCommit",
+        "title": "Generate & Commit"
       }
-    ]
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "legit.generateCommitMessage",
+          "title": "LeGit: Generate Commit Message"
+        },
+        {
+          "command": "legit.generateAndCommit",
+          "title": "LeGit: Generate & Commit"
+        }
+      ],
+      "scm/title": [
+        {
+          "command": "legit.generateCommitMessage",
+          "group": "navigation",
+          "when": "scmProvider == git"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
@@ -28,14 +106,19 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.103.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
+    "@types/vscode": "^1.103.0",
     "@typescript-eslint/eslint-plugin": "^8.42.0",
     "@typescript-eslint/parser": "^8.42.0",
-    "eslint": "^9.34.0",
-    "typescript": "^5.9.2",
     "@vscode/test-cli": "^0.0.11",
-    "@vscode/test-electron": "^2.5.2"
+    "@vscode/test-electron": "^2.5.2",
+    "@vscode/vsce": "^3.6.0",
+    "eslint": "^9.34.0",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@google/genai": "^1.19.0",
+    "@google/generative-ai": "^0.24.1"
   }
 }

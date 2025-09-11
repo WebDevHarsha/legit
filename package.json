@@ -90,7 +90,8 @@
       ],
       "scm/title": [
         {
-          "command": "legit.generateCommitMessage",
+          "command": "legit.generateAndCommit",
+          "title": "gac",
           "group": "navigation",
           "when": "scmProvider == git"
         }
@@ -118,7 +119,6 @@
     "typescript": "^5.9.2"
   },
   "dependencies": {
-    "@google/genai": "^1.19.0",
     "@google/generative-ai": "^0.24.1"
   }
 }

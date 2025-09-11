@@ -46,10 +46,6 @@ async function generateCommitMessage(diff: string, options: CommitMessageOptions
   const { GoogleGenerativeAI } = await import("@google/generative-ai");
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
-  const { GoogleGenAI } = await import("@google/genai");
-  const ai = new GoogleGenAI({
-    apiKey: apiKey
-  });
   let prompt = `Analyze the following git diff and generate a commit message. `;
   
   switch (options.style) {

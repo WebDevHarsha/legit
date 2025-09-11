@@ -1,8 +1,10 @@
 {
-  "name": "legit",
+  "name": "leegit",
   "displayName": "LeGit",
+  "publisher": "DevHarsha",
   "description": "AI-powered Git commit message generator for VS Code. Automatically suggests meaningful commit messages by analyzing your code changes.",
   "version": "0.0.1",
+  "icon": "icon.png",
   "engines": {
     "vscode": "^1.103.0"
   },

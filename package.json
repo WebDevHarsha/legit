@@ -1,5 +1,5 @@
 {
-  "name": "leegit",
+  "name": "legit",
   "displayName": "LeGit",
   "publisher": "DevHarsha",
   "description": "AI-powered Git commit message generator for VS Code. Automatically suggests meaningful commit messages by analyzing your code changes.",

@@ -4,7 +4,7 @@ LeGit is a VS Code extension that uses Google's Gemini AI to automatically gener
 
 ## Features
 
-- 🤖 **AI-Generated Commit Messages**: Uses Google Gemini to analyze your code changes and generate contextual commit messages
+- 🤖 **AI-Generated Commit Messages**: Uses Gemini 3.8 Flash to analyze your code changes and generate contextual commit messages
 - 📝 **Multiple Commit Styles**: Choose between Conventional Commits, descriptive, or brief message styles
 - 🎯 **Smart Staging**: Automatically offers to stage all changes if no changes are staged
 - ✏️ **Editable Messages**: Review and edit generated messages before committing
